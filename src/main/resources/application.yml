@@ -1,0 +1,40 @@
+server:
+  port: 8620
+spring:
+  datasource: # 数据源
+    #type: com.zaxxer.hikari.HikariDataSource          # 连接池使用HikariCP
+    driver-class-name: com.mysql.cj.jdbc.Driver          # mysql??
+    url: jdbc:mysql://8.137.39.241:4508/rocket-mq?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    username: root
+    password: XSJroot123456
+    hikari:
+      connection-timeout: 30000        # sql超时时间 30s
+      minimum-idle: 5
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 600000
+      pool-name: DateSourceHikariCP
+      max-lifetime: 1800000
+      connection-test-query: SELECT 1 FROM DUAL
+  application:
+    name: datasource
+  data:
+    redis:
+      cluster:
+        nodes: 8.137.39.241:6379
+      connect-timeout: 2000
+      password: XSJroot123456
+      lettuce:
+        pool:
+          max-wait: -1ms
+          max-active: 32
+          max-idle: 24
+          min-idle: 8
+logging:
+  level:
+    # 设置 MyBatis 的日志级别为 DEBUG
+    com.baomidou.mybatisplus: DEBUG
+    # 设置全局日志为debug
+    com:
+      study:
+        datasource: DEBUG
