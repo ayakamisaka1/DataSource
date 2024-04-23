@@ -1,6 +1,11 @@
 package com.study.datasource.entity.po;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+
+import java.util.Date;
 
 /**
  * <p>
@@ -15,5 +20,45 @@ import lombok.Data;
  * @date : 2024/4/23 14:09
  */
 @Data
+@TableName("SYSTEM_USER")
 public class UserPO {
+    /**
+     * 主键id
+     */
+    private Integer id;
+    /**
+     * 中文名
+     */
+
+    private String chineseName;
+    /**
+     * 密码
+     */
+    private String password;
+    /**
+     * 删除标识
+     */
+
+    private String deleted;
+    /**
+     * 创建人
+     */
+
+    private String createdBy;
+    /**
+     * 创造时间
+     */
+    private Date createdTime;
+    /**
+     * 修改人
+     */
+    private String updateBy;
+    /**
+     * 修改时间
+     */
+    private Date updateTime;
+    /**
+     * 版本号
+     */
+    private Integer version;
 }
