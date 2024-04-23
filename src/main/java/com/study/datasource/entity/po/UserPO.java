@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -21,44 +22,53 @@ import java.util.Date;
  */
 @Data
 @TableName("SYSTEM_USER")
-public class UserPO {
+public class UserPO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     /**
      * 主键id
      */
-    private Integer id;
+    @TableField(value = "id")
+    private String id;
     /**
      * 中文名
      */
-
+    @TableField(value = "chinese_name")
     private String chineseName;
     /**
      * 密码
      */
+    @TableField(value = "password")
     private String password;
     /**
      * 删除标识
      */
-
+    @TableField(value = "deleted")
     private String deleted;
     /**
      * 创建人
      */
-
+    @TableField(value = "created_by")
     private String createdBy;
     /**
      * 创造时间
      */
+    @TableField(value = "created_time")
     private Date createdTime;
     /**
      * 修改人
      */
+    @TableField(value = "update_by")
     private String updateBy;
     /**
      * 修改时间
      */
+    @TableField(value = "update_time")
     private Date updateTime;
     /**
      * 版本号
      */
+    @TableField(value = "version")
     private Integer version;
 }
