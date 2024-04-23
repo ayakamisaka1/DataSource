@@ -4,7 +4,7 @@ spring:
   datasource: # 数据源
     #type: com.zaxxer.hikari.HikariDataSource          # 连接池使用HikariCP
     driver-class-name: com.mysql.cj.jdbc.Driver          # mysql??
-    url: jdbc:mysql://8.137.39.241:4508/rocket-mq?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    url: jdbc:mysql://8.137.39.241:4508/data-mysql?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
     username: root
     password: XSJroot123456
     hikari:
@@ -38,3 +38,17 @@ logging:
     com:
       study:
         datasource: DEBUG
+springdoc:
+  swagger-ui:
+    # 自定义的文档界面访问路径。默认访问路径是/swagger-ui.html
+    path: /springdoc/docs.html
+    enabled: true
+    # 持久化认证数据，如果设置为 true，它会保留授权数据并且不会在浏览器关闭/刷新时丢失
+    persistAuthorization: true
+  api-docs:
+    # 修改api-docs路径
+    path: /v3/api-docs
+    # 开启api-docs
+    enabled: true
+
+
