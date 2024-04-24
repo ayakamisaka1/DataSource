@@ -21,7 +21,7 @@ import java.util.Date;
  * @date : 2024/4/23 14:09
  */
 @Data
-@TableName("SYSTEM_USER")
+@TableName("system_user")
 public class UserPO implements Serializable {
 
     private static final long serialVersionUID = 1L;

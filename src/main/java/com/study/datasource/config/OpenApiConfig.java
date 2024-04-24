@@ -77,9 +77,9 @@ public class OpenApiConfig {
                 // 组名
                 .group("认证接口")
                 // 扫描的路径，支持通配符
-                .pathsToMatch("/login")
+                .pathsToMatch("/v1/**")
                 // 扫描的包
-                .packagesToScan("com.demo.controller.auth")
+                .packagesToScan("com.study.datasource.controller")
                 .build();
     }
 
