@@ -16,6 +16,12 @@ spring:
       pool-name: DateSourceHikariCP
       max-lifetime: 1800000
       connection-test-query: SELECT 1 FROM DUAL
+    clickhouse:
+      #driverClassName: com.clickhouse.jdbc.ClickHouseDriver
+      url: 8.137.39.241:8123
+      database: default
+      username: default
+      password: XSJroot123456
   application:
     name: datasource
   data:

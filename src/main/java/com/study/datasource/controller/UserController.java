@@ -4,9 +4,12 @@ import com.study.datasource.entity.po.UserPO;
 import com.study.datasource.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 /**
@@ -27,9 +30,15 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    @Resource
+    @Qualifier(value = "clickHouseTemplate")//指定使用clickhouse
+    private JdbcTemplate clickHouseTemplate;
+
+
     @GetMapping("/v1/index")
     public String index(){
         List<UserPO> list = userService.list();
-        return list.get(0).getChineseName();
+        int queryTimeout = clickHouseTemplate.getQueryTimeout();
+        return list.get(0).getChineseName()+"哈哈我是ck："+queryTimeout;
     }
 }
